@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import LatestNews from "../components/LatestNews";
 import { useSearch } from "../components/SearchContext";
+import Image from "next/image";
 
 interface Article {
   id: number;
@@ -257,10 +258,13 @@ export default function ArticlesPage() {
                   className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
                 >
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={article.imageUrl}
                       alt={article.title}
+                      width={500} // Adjust width as needed
+                      height={300} // Adjust height as needed
                       className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+                      priority
                     />
                     <div className="absolute top-4 left-4 bg-blue-600 text-white text-sm px-3 py-1 rounded-full">
                       {article.category}
