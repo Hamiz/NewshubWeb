@@ -16,7 +16,7 @@ const categories = [
 
 export default function Header() {
   const router = useRouter();
-  const { searchQuery, setSearchQuery } = useSearch();
+  const { setSearchQuery } = useSearch();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);

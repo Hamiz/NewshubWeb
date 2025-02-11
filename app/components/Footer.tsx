@@ -7,7 +7,6 @@ import {
   Instagram,
   Linkedin,
   Mail,
-  ExternalLink,
   ArrowRight,
 } from "lucide-react";
 

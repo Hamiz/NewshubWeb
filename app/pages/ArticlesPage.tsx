@@ -1,12 +1,6 @@
-import React, { useState, useEffect, useRef, RefObject } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import {
-  ChevronRight,
-  Clock,
-  User,
-  ArrowRight,
-  TrendingUp,
-} from "lucide-react";
+import { ChevronRight, Clock, User, ArrowRight } from "lucide-react";
 import LatestNews from "../components/LatestNews";
 import { useSearch } from "../components/SearchContext";
 import Image from "next/image";
@@ -20,10 +14,6 @@ interface Article {
   date: string;
   readTime: string;
   imageUrl: string;
-}
-
-interface ArticleRefs {
-  [key: number]: HTMLDivElement | null;
 }
 
 const categories = [
@@ -161,9 +151,8 @@ const newsArticles: Article[] = [
 ];
 
 export default function ArticlesPage() {
-  const { searchQuery, selectedArticle } = useSearch();
+  const { searchQuery } = useSearch();
   const [filteredArticles, setFilteredArticles] = useState(newsArticles);
-  const articleRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
 
   useEffect(() => {
     const filtered = newsArticles.filter(
@@ -176,40 +165,26 @@ export default function ArticlesPage() {
     setFilteredArticles(filtered);
   }, [searchQuery]);
 
-  // Scroll to selected article if any
-  useEffect(() => {
-    if (selectedArticle && articleRefs.current[selectedArticle]) {
-      articleRefs.current[selectedArticle]?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  }, [selectedArticle]);
-
   return (
     <main className="min-h-screen">
       <div className="container mx-auto px-4 py-16">
-        {/* Hero Section */}
         <FadeInSection>
           <div className="text-center max-w-4xl mx-auto pt-4 mb-16">
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
               Explore Our Articles
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Discover in-depth news and analysis across various categories,
-              curated by our expert journalists and contributors.
+              Discover in-depth news and analysis across various categories.
             </p>
           </div>
         </FadeInSection>
 
-        {/* Latest News Section */}
         <FadeInSection delay={200}>
           <section className="mb-16">
             <LatestNews />
           </section>
         </FadeInSection>
 
-        {/* Categories Grid */}
         <FadeInSection delay={400}>
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-gray-800 mb-8">
@@ -242,79 +217,46 @@ export default function ArticlesPage() {
           </section>
         </FadeInSection>
 
-        {/* Featured Articles */}
         <FadeInSection delay={600}>
-          <section className="mb-16">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-gray-800">
-                Featured Articles
-              </h2>
-              <TrendingUp className="w-6 h-6 text-blue-600" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {newsArticles.map((article) => (
-                <div
+          <section>
+            <h2 className="text-3xl font-bold text-gray-800 mb-8">
+              Latest Articles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredArticles.map((article) => (
+                <article
                   key={article.id}
-                  className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
+                  className="p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={article.imageUrl}
-                      alt={article.title}
-                      width={500} // Adjust width as needed
-                      height={300} // Adjust height as needed
-                      className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
-                      priority
-                    />
-                    <div className="absolute top-4 left-4 bg-blue-600 text-white text-sm px-3 py-1 rounded-full">
-                      {article.category}
-                    </div>
+                  <Image
+                    src={article.imageUrl}
+                    alt={article.title}
+                    width={400}
+                    height={250}
+                    className="rounded-lg"
+                  />
+                  <h3 className="text-xl font-semibold mt-4">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-gray-500">{article.excerpt}</p>
+                  <div className="flex items-center justify-between mt-4">
+                    <p className="text-sm text-gray-600">
+                      <User className="inline w-4 h-4 mr-1" />
+                      {article.author}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      <Clock className="inline w-4 h-4 mr-1" />
+                      {article.readTime}
+                    </p>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center">
-                          <User className="w-4 h-4 mr-1" />
-                          {article.author}
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />
-                          {article.readTime}
-                        </div>
-                      </div>
-                      <span>{article.date}</span>
-                    </div>
-                  </div>
-                </div>
+                  <Link
+                    href={`/article/${article.id}`}
+                    className="text-blue-600 hover:underline mt-2 inline-block"
+                  >
+                    Read more <ArrowRight className="inline w-4 h-4" />
+                  </Link>
+                </article>
               ))}
-            </div>
-          </section>
-        </FadeInSection>
-
-        {/* Newsletter Section */}
-        <FadeInSection delay={800}>
-          <section className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-              <p className="text-lg mb-6 text-blue-100">
-                Get the latest articles and news updates delivered to your
-                inbox.
-              </p>
-              <div className="flex max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none"
-                />
-                <button className="bg-white text-blue-600 px-6 py-3 rounded-r-lg font-medium hover:bg-blue-50 transition-colors flex items-center">
-                  Subscribe
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
-              </div>
             </div>
           </section>
         </FadeInSection>

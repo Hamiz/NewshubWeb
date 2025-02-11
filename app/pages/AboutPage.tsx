@@ -1,8 +1,9 @@
 import React, { useState, useEffect, ReactNode } from "react";
 import { Users, Globe, Award } from "lucide-react";
+import Image from "next/image";
 
 interface StatItem {
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   label: string;
   value: string;
 }
@@ -62,10 +63,12 @@ export default function AboutPage() {
           <div className="mt-24 grid md:grid-cols-2 gap-16 items-center">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
               <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-blue-500 to-purple-600">
-                <img
+                <Image
                   src="/images/4k-ultra-hd-smart-tv_1079150-45367.jpg"
                   alt="Our Newsroom"
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  width={800} // Set an appropriate width
+                  height={500} // Set an appropriate height
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -94,7 +97,7 @@ export default function AboutPage() {
         {/* Stats Section */}
         <FadeInSection delay={400}>
           <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map(({ icon: Icon, label, value }, index) => (
+            {stats.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
                 className="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
@@ -122,9 +125,9 @@ export default function AboutPage() {
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
                 Trust, transparency, and truth form the foundation of everything
-                we do. We're committed to delivering news that matters, when it
-                matters, while maintaining the highest standards of journalistic
-                excellence.
+                we do. We&apos;re committed to delivering news that matters,
+                when it matters, while maintaining the highest standards of
+                journalistic excellence.
               </p>
               <p>
                 Our team of dedicated professionals works tirelessly to bring

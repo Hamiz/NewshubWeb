@@ -28,6 +28,11 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({
   );
 };
 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log("Form submitted");
+};
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen">
@@ -39,7 +44,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              We're here to help and answer any questions you might have.
+              We&apos;re here to help and answer any questions you might have.
               Looking forward to hearing from you.
             </p>
           </section>
@@ -52,7 +57,7 @@ export default function ContactPage() {
               <h2 className="text-3xl font-bold text-gray-800 mb-8">
                 Send us a Message
               </h2>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="group">
                   <label
                     htmlFor="name"

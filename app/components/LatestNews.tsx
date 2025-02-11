@@ -60,8 +60,9 @@ export default function LatestNews() {
         {latestArticles.map((article) => (
           <article
             key={article.id}
-            className="group relative bg-white rounded-xl overflow-hidden transition-all duration-300
-              hover:shadow-lg hover:translate-y-[-2px]"
+            className={`group relative bg-white rounded-xl overflow-hidden transition-all duration-300
+            hover:shadow-lg hover:translate-y-[-2px] 
+            ${hoveredArticle === article.id ? "shadow-xl scale-105" : ""}`}
             onMouseEnter={() => setHoveredArticle(article.id)}
             onMouseLeave={() => setHoveredArticle(null)}
           >

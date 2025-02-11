@@ -18,7 +18,7 @@ const featuredArticle = {
   title: "Breaking: Global Climate Summit Announces Ambitious New Targets",
   category: "Politics",
   timestamp: "2 hours ago",
-  imageUrl: "/usgs-Knh_5u-ZhJw-unsplash.jpg",
+  imageUrl: "/images/usgs-Knh_5u-ZhJw-unsplash.jpg",
   summary:
     "World leaders gather to discuss critical climate change strategies and set new environmental goals.",
 };
@@ -59,14 +59,6 @@ const newsCategories = [
 export default function HeroSection() {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-
-  const scrollToCategories = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const element = document.getElementById("news-categories");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   return (
     <section className="max-w py-6">
