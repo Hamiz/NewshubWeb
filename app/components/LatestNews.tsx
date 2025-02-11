@@ -11,7 +11,7 @@ const latestArticles = [
     title: "Renewable Energy Investments Reach Record High",
     category: "Technology",
     timestamp: "1 hour ago",
-    imageUrl: "/jason-mavrommatis-nyL-rzwP-Mk-unsplash.jpg",
+    imageUrl: "/images/jason-mavrommatis-nyL-rzwP-Mk-unsplash.jpg",
     author: "Jane Doe",
   },
   {
@@ -19,7 +19,7 @@ const latestArticles = [
     title: "Global Economic Outlook: Challenges and Opportunities",
     category: "Economy",
     timestamp: "3 hours ago",
-    imageUrl: "/john-cameron-9agLGa8cCM8-unsplash.jpg",
+    imageUrl: "/images/john-cameron-9agLGa8cCM8-unsplash.jpg",
     author: "John Smith",
   },
   {
@@ -27,7 +27,7 @@ const latestArticles = [
     title: "Healthcare Innovation: New Breakthrough Treatments",
     category: "Health",
     timestamp: "5 hours ago",
-    imageUrl: "/jared-rice-NTyBbu66_SI-unsplash.jpg",
+    imageUrl: "/images/jared-rice-NTyBbu66_SI-unsplash.jpg",
     author: "Emily Johnson",
   },
 ];

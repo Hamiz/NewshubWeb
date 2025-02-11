@@ -69,7 +69,7 @@ const newsArticles: Article[] = [
     author: "Dr. Sarah Chen",
     date: "Feb 8, 2024",
     readTime: "6 min read",
-    imageUrl: "/lukas-hND1OG3q67k-unsplash.jpg",
+    imageUrl: "/images/lukas-hND1OG3q67k-unsplash.jpg",
   },
   {
     id: 2,
@@ -80,7 +80,7 @@ const newsArticles: Article[] = [
     author: "Michael Roberts",
     date: "Feb 9, 2024",
     readTime: "5 min read",
-    imageUrl: "/markus-spiske-XrIfY_4cK1w-unsplash.jpg",
+    imageUrl: "/images/markus-spiske-XrIfY_4cK1w-unsplash.jpg",
   },
   {
     id: 3,
@@ -91,7 +91,7 @@ const newsArticles: Article[] = [
     author: "Dr. Emily Carter",
     date: "Feb 10, 2024",
     readTime: "7 min read",
-    imageUrl: "/thisisengineering-64YrPKiguAE-unsplash (1).jpg",
+    imageUrl: "/images/thisisengineering-64YrPKiguAE-unsplash (1).jpg",
   },
   {
     id: 4,
@@ -102,7 +102,7 @@ const newsArticles: Article[] = [
     author: "John Davidson",
     date: "Feb 11, 2024",
     readTime: "6 min read",
-    imageUrl: "/kristin-wilson-z3htkdHUh5w-unsplash.jpg",
+    imageUrl: "/images/kristin-wilson-z3htkdHUh5w-unsplash.jpg",
   },
   {
     id: 5,
@@ -113,7 +113,7 @@ const newsArticles: Article[] = [
     author: "Dr. Lisa Andrews",
     date: "Feb 12, 2024",
     readTime: "5 min read",
-    imageUrl: "/jonathan-borba-lrQPTQs7nQQ-unsplash (1).jpg",
+    imageUrl: "/images/jonathan-borba-lrQPTQs7nQQ-unsplash (1).jpg",
   },
   {
     id: 6,
@@ -124,7 +124,7 @@ const newsArticles: Article[] = [
     author: "Mark Thompson",
     date: "Feb 13, 2024",
     readTime: "8 min read",
-    imageUrl: "/adi-goldstein-EUsVwEOsblE-unsplash.jpg",
+    imageUrl: "/images/adi-goldstein-EUsVwEOsblE-unsplash.jpg",
   },
   {
     id: 7,
@@ -135,7 +135,7 @@ const newsArticles: Article[] = [
     author: "Sophia Martinez",
     date: "Feb 14, 2024",
     readTime: "6 min read",
-    imageUrl: "/matthew-smith-Rfflri94rs8-unsplash (1).jpg",
+    imageUrl: "/images/matthew-smith-Rfflri94rs8-unsplash (1).jpg",
   },
   {
     id: 8,
@@ -145,7 +145,7 @@ const newsArticles: Article[] = [
     author: "Daniel Lee",
     date: "Feb 15, 2024",
     readTime: "7 min read",
-    imageUrl: "/viktor-forgacs-3PyBkxgTiL0-unsplash (1).jpg",
+    imageUrl: "/images/viktor-forgacs-3PyBkxgTiL0-unsplash (1).jpg",
   },
   {
     id: 9,
@@ -156,7 +156,7 @@ const newsArticles: Article[] = [
     author: "Dr. Robert Harrison",
     date: "Feb 16, 2024",
     readTime: "6 min read",
-    imageUrl: "/susan-q-yin-2JIvboGLeho-unsplash.jpg",
+    imageUrl: "/images/susan-q-yin-2JIvboGLeho-unsplash.jpg",
   },
 ];
 
