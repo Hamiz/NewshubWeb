@@ -62,7 +62,7 @@ export default function LatestNews() {
             key={article.id}
             className={`group relative bg-white rounded-xl overflow-hidden transition-all duration-300
             hover:shadow-lg hover:translate-y-[-2px] 
-            ${hoveredArticle === article.id ? "shadow-xl scale-105" : ""}`}
+            // ${hoveredArticle === article.id ? "shadow-xl scale-105" : ""}`}
             onMouseEnter={() => setHoveredArticle(article.id)}
             onMouseLeave={() => setHoveredArticle(null)}
           >
